@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        //Get player selcetion from rock paper or scissors
+        function getPlayerSelection() {
+         const playerSelection = prompt("Enter rock or paper or scissors");
+         return playerSelection.toLowerCase();
+        }
+        
+        //Getting random number for computer play.
+        function getNumber() {
+            let gameNumber = Math.floor(Math.random() * 3) + 1;
+            return gameNumber;
+        }
+        
+        //Deciding computer play values based on generated random number.
+        function computerPlay(number) {
+            let rock = 'rock';
+            let paper = 'paper';
+            let scissor = 'scissor';
+
+            switch(number) {
+                case 1 :
+                    return rock;
+                    break;
+                case 2:
+                    return paper;
+                    break;
+                case 3:
+                    return scissor;
+                    default: 
+                    console.log("No computer play");
+            }
+
+
+        }
+      
+      let playerSelection = getPlayerSelection();
+      let computerSelection = computerPlay(getNumber());
+      
+      function play(playerSelection,computerSelection) {
+
+
+          if(playerSelection == computerSelection) {
+              console.log("No one wins it is a draw.");
+          }
+
+          else if(playerSelection == 'rock' && computerSelection == 'scissor') {
+              console.log("Rocks beat scissors, you win");
+          }
+
+          else if(playerSelection == 'rock' &&  computerSelection == 'paper') {
+              console.log("Paper covers rock you lose");
+          }
+
+          else if(playerSelection == 'paper' && computerSelection == 'scissor') {
+              console.log('Scissors cut paper you lose.');
+          }
+
+          else if(playerSelection == 'paper' && computerSelection == 'rock') {
+            console.log("Paper covers rock you win");
+          }
+
+          else if(playerSelection == 'scissor' && computerSelection == 'rock') {
+              console.log('You lose');
+          }
+
+          else if(playerSelection == 'scissor' && computerSelection == 'paper') {
+              console.log('You win');
+          } 
+          else (console.log('No one wins'));
+
+      }
+
+      play(playerSelection,computerSelection);
+
+      
+      </script>
+</body>
+</html>
